@@ -79,9 +79,9 @@ if __name__ == '__main__':
 
     intervals = get_available_time(min_time, max_time, john_events, mary_events, mike_events)
     free_list = []
-    #pprint(intervals[datetime.date(2017, 3, 1)])
+    pprint(intervals[datetime.date(2017, 3, 1)])
     #d.strftime(%m/%d/%H:%M)
-    for date in intervals.keys():
+    for date in sorted(intervals.keys()):
         for pair in intervals[date]:
             start,end = pair
             start_str = start.strftime('%m/%d %H:%M')
@@ -89,4 +89,5 @@ if __name__ == '__main__':
             text = start_str + " ～ " + end_str
             free_list.append(text)
 
-    pprint("\n".join(free_list))
+    pprint('\r\n'.join(free_list))
+
